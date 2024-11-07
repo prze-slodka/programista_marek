@@ -5,6 +5,8 @@ namespace C3
     {
         private Fuel _fuel;
         public double MaxCapacity { get; }
+        public double Volume { get; private set; }
+        public double Weight { get; private set; }
 
         public FuelTank(double capacity, Fuel fuel)
         {
@@ -17,7 +19,8 @@ namespace C3
 
         public void VisitPort()
         {
-            // Implement logic to adjust volume and weight
+            Volume = MaxCapacity;
+            Weight = Volume * _fuel.Density;
         }
     }
 }

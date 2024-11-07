@@ -13,7 +13,8 @@ namespace C3
 
         public void GatherData()
         {
-            // Logic for gathering data
+            _equipment.CollectData(); // Example method to collect data using equipment
+            Console.WriteLine("Data gathered successfully.");
         }
 
         public void Work(double hours)
