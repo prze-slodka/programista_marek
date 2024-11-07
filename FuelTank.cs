@@ -1,19 +1,23 @@
-public class FuelTank : IVisitPort
+﻿using System;
+namespace C3
 {
-    private Fuel _fuel;
-    public double MaxCapacity { get; }
-    
-    public FuelTank(double capacity, Fuel fuel)
+    public class FuelTank : IVisitPort
     {
-        MaxCapacity = capacity;
-        _fuel = fuel;
-    }
+        private Fuel _fuel;
+        public double MaxCapacity { get; }
 
-    public double GetCapacity() => MaxCapacity;
-    public string GetFuelType() => _fuel.GetType();
-    
-    public void VisitPort()
-    {
-        // Implement logic to adjust volume and weight
+        public FuelTank(double capacity, Fuel fuel)
+        {
+            MaxCapacity = capacity;
+            _fuel = fuel;
+        }
+
+        public double GetCapacity() => MaxCapacity;
+        public string GetFuelType() => _fuel.GetType();
+
+        public void VisitPort()
+        {
+            // Implement logic to adjust volume and weight
+        }
     }
 }
