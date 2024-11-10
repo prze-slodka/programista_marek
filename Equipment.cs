@@ -13,7 +13,7 @@ namespace C3
             set
             {
                 volume = value;
-                weight = value * 7.0; // assume density equal to 7000 kg/m^3 (arbitrary number)
+                weight = value * 7.0;
             }
         }
         public double Weight
@@ -22,8 +22,21 @@ namespace C3
             set
             {
                 weight = value;
-                volume = value / 7.0; // assume density equal to 7000 kg/m^3 (arbitrary number)
+                volume = value / 7.0;
             }
+        }
+
+        public double GetVolume() => Volume;
+        public double GetWeight() => Weight;
+
+        public void SetVolume(double _volume)
+        {
+            Volume = _volume;
+        }
+
+        public void SetWeight(double _weight)
+        {
+            Weight = _weight;
         }
 		
         public string GatherData()

@@ -1,0 +1,14 @@
+C:\Users\zinzy\source\repos\marek\bin\Debug\netcoreapp3.1\marek.exe
+C:\Users\zinzy\source\repos\marek\bin\Debug\netcoreapp3.1\marek.deps.json
+C:\Users\zinzy\source\repos\marek\bin\Debug\netcoreapp3.1\marek.runtimeconfig.json
+C:\Users\zinzy\source\repos\marek\bin\Debug\netcoreapp3.1\marek.runtimeconfig.dev.json
+C:\Users\zinzy\source\repos\marek\bin\Debug\netcoreapp3.1\marek.dll
+C:\Users\zinzy\source\repos\marek\bin\Debug\netcoreapp3.1\marek.pdb
+C:\Users\zinzy\source\repos\marek\obj\Debug\netcoreapp3.1\marek.csproj.AssemblyReference.cache
+C:\Users\zinzy\source\repos\marek\obj\Debug\netcoreapp3.1\marek.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zinzy\source\repos\marek\obj\Debug\netcoreapp3.1\marek.AssemblyInfoInputs.cache
+C:\Users\zinzy\source\repos\marek\obj\Debug\netcoreapp3.1\marek.AssemblyInfo.cs
+C:\Users\zinzy\source\repos\marek\obj\Debug\netcoreapp3.1\marek.csproj.CoreCompileInputs.cache
+C:\Users\zinzy\source\repos\marek\obj\Debug\netcoreapp3.1\marek.dll
+C:\Users\zinzy\source\repos\marek\obj\Debug\netcoreapp3.1\marek.pdb
+C:\Users\zinzy\source\repos\marek\obj\Debug\netcoreapp3.1\marek.genruntimeconfig.cache

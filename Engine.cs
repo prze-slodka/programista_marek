@@ -1,40 +1,34 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
 namespace C3
 {
-    public class Engine
+    class Engine
     {
-        private double _speed;
-        private double _totalWeight;
+        private FuelTank tank;
+        private Waste waste { get; set; }
 
-        public void CheckFuelBeforeTravel(FuelTank fuelTank)
+        public Engine(FuelTank _tank, Waste _waste) 
         {
-            if (fuelTank.Volume <= 0)
-            {
-                throw new Exception("Insufficient fuel for travel.");
-            }
+            tank = _tank;
+            waste = _waste;
         }
 
-        public void Travel(FuelTank fuelTank)
+        public double GetVelocity(double submarineWeight)
         {
-            CheckFuelBeforeTravel(fuelTank);
-
-            // Example logic for fuel consumption and waste production
-            double fuelConsumption = 10; // Example fuel consumption rate
-            fuelTank.Volume -= fuelConsumption;
-
-            if (fuelTank.Volume < 0)
-            {
-                fuelTank.Volume = 0;
-            }
-
-            waste.Volume += fuelConsumption; // Update waste production
+            return 150000 / submarineWeight;
         }
 
-        public void AdjustSpeed(double weight)
+        public bool CheckFuelBeforeTravel(double travelTime)
         {
-            _totalWeight = weight;
-            _speed = 100 / _totalWeight; // Example speed calculation
+            return tank.GetVolume() > travelTime * 0.1;
+        }
+
+        public void Travel(double travelTime)
+        {
+            tank.SetVolume(travelTime * 0.1);
+            waste.SetVolume(waste.GetVolume() + (travelTime * 0.1 * 0.05));
         }
     }
-
 }

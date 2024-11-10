@@ -1,53 +1,54 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace C3
 {
-    public class LifeSupportSystem
+    class LifeSupportSystem
     {
-        public class LifeSupportSystem
+        private List<OxygenBottle> oxygenBottles;
+        private FoodContainer foodContainer;
+        private Waste waste;
+        private List<Human> crew;
+
+        public LifeSupportSystem(List<OxygenBottle> _bottles, FoodContainer _container, Waste _waste, List<Human> _crew)
         {
-            public List<OxygenBottle> oxygenBottles { get; set; }
-            public FoodContainer foodContainer { get; set; }
-            public Waste waste { get; set; }
-            public List<Crewman> crew { get; set; }
+            oxygenBottles = _bottles;
+            foodContainer = _container;
+            waste = _waste;
+            crew = _crew;
+        }
 
-            public void CheckSuppliesBeforeTravel()
+        public bool CheckSuppliesBeforeTravel(double travelTime)
+        {
+            if (travelTime > 100) return false;
+
+            foreach (var bottle in oxygenBottles)
             {
-                foreach (var oxygenBottle in oxygenBottles)
+                if (bottle.GetVolume() < 0.8 * bottle.MaxCapacity)
                 {
-                    if (oxygenBottle.Volume < oxygenBottle.MaxCapacity)
-                    {
-                        throw new Exception("Oxygen supplies are insufficient for travel.");
-                    }
-                }
-
-                if (foodContainer.Volume < foodContainer.MaxCapacity)
-                {
-                    throw new Exception("Food supplies are insufficient for travel.");
-                }
-
-                if (waste.Volume > 0)
-                {
-                    throw new Exception("Waste needs to be disposed of before travel.");
+                    return false;
                 }
             }
 
-            public void Run()
+            if (waste.GetVolume() > 1) return false;
+
+            if (foodContainer.GetVolume() == 0) return false;
+
+            return true;
+        }
+
+        public void Run(double travelTime)
+        {
+            double usedFood = travelTime * 0.1 * crew.Count;
+
+            foodContainer.SetVolume(foodContainer.GetVolume() - usedFood);
+            waste.SetVolume(waste.GetVolume() + (usedFood * 0.01));
+
+            foreach (var bottle in oxygenBottles)
             {
-                CheckSuppliesBeforeTravel();
-
-                foreach (var oxygenBottle in oxygenBottles)
-                {
-                    oxygenBottle.Volume -= 1; // Example consumption rate
-                    oxygenBottle.Weight = oxygenBottle.Volume * 1.429; // Update weight based on volume
-                }
-
-                foodContainer.Volume -= crew.Count; // Example consumption rate per crew member
-                foodContainer.Weight = foodContainer.Volume * 0.8; // Update weight based on volume
-
-                waste.Volume += crew.Count; // Example waste production rate per crew member
+                bottle.SetVolume(bottle.GetVolume() - (travelTime * crew.Count));
             }
         }
     }
-}
 }

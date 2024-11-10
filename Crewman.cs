@@ -1,9 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
 namespace C3
 {
-    public class Crewman : Human
+    class Crewman : Human
     {
-        public Crewman() : base(weight: 70, volume: 0.07) // Example values for weight and volume
+        public string Duty { get; set; }
+
+        public Crewman()
         {
+            Duty = "Worker";
+        }
+
+        public Crewman(string duty = "Worker")
+        {
+            Duty = duty;
         }
     }
 }

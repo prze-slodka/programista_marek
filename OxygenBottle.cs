@@ -1,17 +1,63 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
 namespace C3
 {
-    public class OxygenBottle : ITransportable, IVisitPort
+    class OxygenBottle : IVisitPort
     {
         public double MaxCapacity { get; set; }
-        public double Volume { get; set; }
-        public double Weight { get; set; }
 
-        public void VisitPort()
+        public double VisitPort()
         {
-            Volume = MaxCapacity;
-            Weight = Volume * 1.429; // Example density for oxygen
+            double priceTag = (MaxCapacity - GetVolume()) * 10;
+            SetVolume(MaxCapacity);
+            return priceTag;
         }
+
+        public double GetCapacity() => MaxCapacity;
+
+        private double _weight;
+        private double _volume;
+
+        public double Volume
+        {
+            get => _volume;
+            set
+            {
+                _volume = value;
+                if (_volume > 0 && MaxCapacity > 0)
+                {
+                    _weight = (_volume / MaxCapacity) * MaxCapacity;
+                }
+            }
+        }
+
+        public double Weight
+        {
+            get => _weight;
+            set
+            {
+                _weight = value;
+                if (_weight > 0 && MaxCapacity > 0)
+                {
+                    _volume = (_weight / MaxCapacity) * MaxCapacity;
+                }
+            }
+        }
+
+        public double GetVolume() => Volume;
+        public double GetWeight() => Weight;
+
+        public OxygenBottle(double _capacity)
+        {
+            MaxCapacity = _capacity;
+
+            _weight = _capacity;
+            _volume = _capacity;
+        }
+
+        public void SetVolume(double _volume) => Volume = _volume;
+        public void SetWeight(double _weight) => Weight = _weight;
     }
 }
-

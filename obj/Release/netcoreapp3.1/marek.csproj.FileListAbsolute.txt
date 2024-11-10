@@ -1,0 +1,4 @@
+C:\Users\zinzy\source\repos\marek\obj\Release\netcoreapp3.1\marek.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zinzy\source\repos\marek\obj\Release\netcoreapp3.1\marek.AssemblyInfoInputs.cache
+C:\Users\zinzy\source\repos\marek\obj\Release\netcoreapp3.1\marek.AssemblyInfo.cs
+C:\Users\zinzy\source\repos\marek\obj\Release\netcoreapp3.1\marek.csproj.CoreCompileInputs.cache

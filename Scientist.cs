@@ -1,27 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace C3
 {
-    public class Scientist : Human
+    class Scientist : Human
     {
-        private Equipment _equipment;
+        private Equipment equipment;
 
-        public Scientist(Equipment equipment)
+        public Scientist(Equipment _equipment)
         {
-            _equipment = equipment;
+            equipment = _equipment;
         }
 
-        public void GatherData()
+        public void Work(double time)
         {
-            _equipment.CollectData(); // Example method to collect data using equipment
-            Console.WriteLine("Data gathered successfully.");
-        }
-
-        public void Work(double hours)
-        {
-            if (hours >= 24)
+            Console.WriteLine($"Scientist worked for {Math.Round(time, 2)}h");
+            if (time >= 24)
             {
-                GatherData();
+                Console.WriteLine(equipment.GatherData());
             }
         }
     }

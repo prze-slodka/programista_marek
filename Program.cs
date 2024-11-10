@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace C3
 {
@@ -9,10 +11,10 @@ namespace C3
             // before we construct a submarine, test individual elements of the program first
             bool testsPassed = TestSubmarine.Run();
             if (!testsPassed) return;
-            Console.WriteLine();
+            Console.WriteLine(testsPassed);
 
             // now we are ready for the submarine simulation
-            // Submarine.Demo();
+            Submarine.Demo();
         }
     }
 }
